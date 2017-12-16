@@ -5,4 +5,4 @@
 #### В режиме dev реализованы: logger || .styl =>.css || sourcemaps || browserSync - перезагрузка при изменениях || браузер откроется самостоятельно
 ### gulp prod
 #### В режиме prod реализованы: .styl =>.css || минимизация || добавление хеша в название файлов || прописывание путей с хешом в html файле || браузер откроется самостоятельно
-### [YUIDOC-Описание приложения}(https://redminemini.github.io/frontend/out)
+### [YUIDOC-Описание приложения](https://redminemini.github.io/frontend/out)
