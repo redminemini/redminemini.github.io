@@ -6,5 +6,5 @@
 ### gulp prod
 #### В режиме prod реализованы: .styl =>.css || минимизация || добавление хеша в название файлов || прописывание путей с хешом в html файле || браузер откроется самостоятельно
 ### [YUIDOC-Описание приложения](https://redminemini.github.io/frontend/out)
-### [Репозиторий приложения](https://redminemini.github.io)
+### [Репозиторий приложения](https://github.com/redminemini/redminemini.github.io)
 ### [Сайт приложения](https://redminemini.github.io/public)
