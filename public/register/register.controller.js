@@ -1,0 +1,1 @@
+!function(){"use strict";function e(e,t,r,o){var s=this;s.register=function(){s.dataLoading=!0,e.Create(s.user).then(function(e){e.success?(o.Success("Registration successful",!0),t.path("/login")):(o.Error(e.message),s.dataLoading=!1)})}}angular.module("app").controller("RegisterController",e),e.$inject=["UserService","$location","$rootScope","FlashService"]}();

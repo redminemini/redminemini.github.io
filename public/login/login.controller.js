@@ -1,0 +1,1 @@
+!function(){"use strict";function n(n,e,a){var o=this;o.login=function(){o.dataLoading=!0,e.Login(o.username,o.password,function(t){t.success?(e.SetCredentials(o.username,o.password),n.path("/")):(a.Error(t.message),o.dataLoading=!1)})},e.ClearCredentials()}angular.module("app").controller("LoginController",n),n.$inject=["$location","AuthenticationService","FlashService"]}();

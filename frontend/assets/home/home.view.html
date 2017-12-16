@@ -1,0 +1,153 @@
+﻿<div class="row header">
+	<a id="cur_user" class="navbar-brand" ng-click="vm.def_click()" href="#">Hi {{vm.user.firstName}}!</a>
+	<a id="logout" href="#!/login" class="btn btn-primary" ng-click="vm.finish_loader()">Logout</a>
+</div>
+<hr>
+<!-- <input id="ttt" type='text'  class='datepicker-here' /> -->
+<div class="row">
+	<h3>Задачи. Не более {{vm.tasck_limit}} задач в листе !!!</h3>
+
+	<div ui-sortable="vm.sortableOptions" id="screen-{{$index}}" class="apps-container screen floatleft" ng-model="screen" ng-repeat="screen in vm.rawScreens">
+	    <div class="header_tasck_list"> 
+			<span class ="list_name">{{screen.name}} : </span> 
+			<span class ="list_count">{{screen.length}} шт</span>
+			<a href="#" id="add_tasck-{{$index}}"  
+				class ="add_button floatright" 
+				ng-click="vm.addtasck($index + 1)" 
+				title="Add">
+				<i class="fa fa-plus" aria-hidden="true"></i>
+			</a>
+	    </div>
+
+	    <div class="app app-{{$index}}" ng-repeat="app in screen">
+			<span id = "num" class = "floatleft">
+				{{$index + 1}}|{{app.id_list}} : 
+			</span>
+			{{app.title}} 
+
+			<a href="#" id="tasck-{{$index}}" 
+				class ="del_button floatright" 
+				ng-click="vm.deltasck(app.id_list, app.id)" 
+				title="Delete">
+				<i class="fa fa-trash-o" aria-hidden="false"></i>
+			</a>
+
+			<a href="#" id="edittasck-{{$index}}"
+				class ="edit_button floatleft" 
+				ng-click="vm.edittasck(app.id_list, app.id, $index)"
+				title="Edit">
+				<i class="<!-- fa fa-pencil-square-o -->" aria-hidden="true"></i>
+			</a>
+	    </div>
+	</div>
+
+	<div>
+	    <div id="openModal" class="modalDialog" >
+		    <div>
+		       	<a href="#" ng-click="vm.exit_modal()" title="Close" class="close">X</a>
+			    <form>
+			        <h2>{{vm.html_title}}</h2>
+			        <table>
+			        	<tr>
+						    <th></th>
+						    <th id="th2"></th>
+						 </tr>
+				        <tr>
+				            <td>TITLE</td>
+				            <td>
+				            	<input id="ttl" style="width:100%;" type='text' ng-model='vm.html_title'>
+				            </td>
+				        </tr>
+				        <tr>
+				        	<td>ДАТА</td>
+				        	<td>
+<input id="dtpckr" style="width:100%;" ng-model='vm.html_date' type='text'  class='datepicker-here' />
+				        	</td>
+				        </tr>
+				        <tr>
+				            <td>ПЛАН</td>
+				            <td>
+				            <input style="width:100%;" type='text' ng-model='vm.html_planned_time'>
+				            </td>
+				        </tr>
+				        <tr>
+				        	<td>ФАКТ</td>
+				        	<td>
+				        	<input style="width:100%;" type='text' ng-model='vm.html_elapsed_time'>
+				        	</td>
+				        </tr>
+				        <tr>
+				            <td>ПИОРИТЕТ</td>
+				            <td>
+				            	<input style="width:100%;" type='text' ng-model='vm.html_priority'>
+				            </td>
+				        </tr>
+				        <tr>
+				        	<td>СТАТУС</td>
+				        	<td>
+							    <select style="width:100%;" class="select-list"
+						            ng-model="vm.html_execution_status"
+						            ng-options="s.id as s.name for s in vm.status">
+						      		<option value="-- choose list --"></option>       
+							    </select>  
+				        	</td>
+				        </tr>
+				        <tr>
+				        	<td>ОПИСАНИЕ</td>
+				        	<td>
+								<textarea name="description" 
+								ng-model='vm.html_description'
+								style="width:100%;">
+								</textarea>
+				        	</td>
+				        </tr>
+			        </table>
+					<p>
+						ИД : {{vm.html_id}}<Br>
+				        ЛИСТ : 
+				        <select  class="select-list"
+						            ng-model="vm.html_id_list"
+						            ng-change="vm.change_list()"
+						            ng-options="s.id as s.name for s in
+						             vm.resgetJsonLists">
+						      		<option value="-- choose list --"></option>       
+							    </select><Br> 
+				    	НОМЕР п/п : {{vm.html_t_index}}<Br>
+			    	</p>
+			        <hr>
+			        <a href="#" ng-click="vm.savetasck(vm.html_id_list, vm.html_id, vm.html_t_index)" 
+			            class="save_button floatright">Сохранить
+			        </a>
+			        <a href="#" ng-click="vm.exit_modal()" 
+			            class="exit_button floatleft">Выйти
+			        </a>
+			    </form>
+
+		        <div class="clear"></div>
+		    </div>
+	    </div>
+	</div>
+</div>
+<hr>
+<div class="row">
+	<button ng-click="vm.addtasck(1)">add row</button>
+	<div class="ngGridStyle" ng-grid="vm.ngGridView"></div>
+
+
+	<button type="button" ng-click="vm.logModels()">Log Lists</button>
+	<ul class="list logList">
+		<li ng-repeat="entry in vm.sortingLog" class="logItem">
+		    {{entry}}
+		</li>
+	</ul>
+</div>
+<hr>
+<div class="row">
+	<h3>All registered users:</h3>
+	<ul>
+	    <li ng-repeat="user in vm.allUsers">
+	        {{user.username}} ({{user.firstName}} {{user.lastName}})
+	        - <a ng-click="vm.deleteUser(user.id)">Delete</a>
+	    </li>
+	</ul>
+</div>

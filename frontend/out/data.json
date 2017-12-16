@@ -1,0 +1,737 @@
+{
+    "project": {},
+    "files": {
+        "assets\\app-services\\authenticationservice.js": {
+            "name": "assets\\app-services\\authenticationservice.js",
+            "modules": {},
+            "classes": {
+                "ServiceAuthentication": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "assets\\app-services\\flashservice.js": {
+            "name": "assets\\app-services\\flashservice.js",
+            "modules": {},
+            "classes": {
+                "ServiceFlash": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "assets\\app-services\\json_service.js": {
+            "name": "assets\\app-services\\json_service.js",
+            "modules": {},
+            "classes": {
+                "ServiceJson": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "assets\\app-services\\user.service.js": {
+            "name": "assets\\app-services\\user.service.js",
+            "modules": {},
+            "classes": {
+                "ServiceUser": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "assets\\app-services\\user_service_localstorage.js": {
+            "name": "assets\\app-services\\user_service_localstorage.js",
+            "modules": {},
+            "classes": {
+                "ServiceUserlocalStorage": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "assets\\dist\\js\\datepicker.js": {
+            "name": "assets\\dist\\js\\datepicker.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "assets\\home\\home.controller.js": {
+            "name": "assets\\home\\home.controller.js",
+            "modules": {},
+            "classes": {
+                "HomeController": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "assets\\login\\login.controller.js": {
+            "name": "assets\\login\\login.controller.js",
+            "modules": {},
+            "classes": {
+                "LoginController": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "assets\\register\\register.controller.js": {
+            "name": "assets\\register\\register.controller.js",
+            "modules": {},
+            "classes": {
+                "RegisterController": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "js\\app.js": {
+            "name": "js\\app.js",
+            "modules": {
+                "app": 1
+            },
+            "classes": {
+                "APP": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "packageJson.js": {
+            "name": "packageJson.js",
+            "modules": {},
+            "classes": {
+                "1_ЗАВИСИМОСТИ_ПРИЛОЖЕНИЯ": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        }
+    },
+    "modules": {
+        "app": {
+            "name": "app",
+            "submodules": {},
+            "elements": {},
+            "classes": {
+                "ServiceAuthentication": 1,
+                "ServiceFlash": 1,
+                "ServiceJson": 1,
+                "ServiceUser": 1,
+                "ServiceUserlocalStorage": 1,
+                "HomeController": 1,
+                "LoginController": 1,
+                "RegisterController": 1,
+                "APP": 1,
+                "1_ЗАВИСИМОСТИ_ПРИЛОЖЕНИЯ": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "main",
+            "file": "packageJson.js",
+            "line": 1,
+            "description": "ПРИЛОЖЕНИЕ РАЗРАБАТЫВАЛ ИСПОЛЬЗУЯ (Windows/Chrome/Node v8.9.1):<br>\n1. gulp;<br>\n2. webpack;<br>\n3. browser-sync;<br>\n4. angularjs;<br>\n5. yuidoc;\n    \nТОЧКА ВХОДА - ФАЙЛ frontend/js/app.js (самовызывающаяся функция).\n\n       angular\n           .module('app',  ['ngGrid', 'ngRoute', 'ngCookies', 'ui.sortable'])\n           .config(config)\n           .run(run);",
+            "itemtype": "main"
+        }
+    },
+    "classes": {
+        "ServiceAuthentication": {
+            "name": "ServiceAuthentication",
+            "shortname": "ServiceAuthentication",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "app",
+            "file": "assets\\app-services\\authenticationservice.js",
+            "line": 8,
+            "mainName": "ServiceAuthentication",
+            "tag": "main",
+            "itemtype": "main",
+            "_main": true
+        },
+        "ServiceFlash": {
+            "name": "ServiceFlash",
+            "shortname": "ServiceFlash",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "app",
+            "namespace": "",
+            "file": "assets\\app-services\\flashservice.js",
+            "line": 8,
+            "mainName": "ServiceFlash",
+            "tag": "main",
+            "itemtype": "main",
+            "_main": true
+        },
+        "ServiceJson": {
+            "name": "ServiceJson",
+            "shortname": "ServiceJson",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "app",
+            "namespace": "",
+            "file": "assets\\app-services\\json_service.js",
+            "line": 8,
+            "mainName": "ServiceJson",
+            "tag": "main",
+            "itemtype": "main",
+            "_main": true
+        },
+        "ServiceUser": {
+            "name": "ServiceUser",
+            "shortname": "ServiceUser",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "app",
+            "namespace": "",
+            "file": "assets\\app-services\\user.service.js",
+            "line": 8,
+            "mainName": "ServiceUser",
+            "tag": "main",
+            "itemtype": "main",
+            "_main": true
+        },
+        "ServiceUserlocalStorage": {
+            "name": "ServiceUserlocalStorage",
+            "shortname": "ServiceUserlocalStorage",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "app",
+            "namespace": "",
+            "file": "assets\\app-services\\user_service_localstorage.js",
+            "line": 8,
+            "description": "ВКЛЮЧЕН В HTML\n\n       <!--Fake user service for demo that uses local storage -->\n       <script src=\"js/user_service_localstorage.js\"></script>",
+            "mainName": "ServiceUserlocalStorage",
+            "tag": "main",
+            "itemtype": "main",
+            "_main": true
+        },
+        "HomeController": {
+            "name": "HomeController",
+            "shortname": "HomeController",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "app",
+            "namespace": "",
+            "file": "assets\\home\\home.controller.js",
+            "line": 8,
+            "description": "ПРЕДОСТАВЛЕНИЕ ДАННЫХ В ВИДЕ DRAG&DROP И ng-GRID\n\n           HomeController.$inject = ['UserService', 'JsonService', '$rootScope'];\n           ........",
+            "mainName": "HomeController",
+            "tag": "main",
+            "itemtype": "main",
+            "_main": true
+        },
+        "LoginController": {
+            "name": "LoginController",
+            "shortname": "LoginController",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "app",
+            "namespace": "",
+            "file": "assets\\login\\login.controller.js",
+            "line": 8,
+            "description": "АУТЕНТИФИКАЦИЯ ПОЛЬЗОВАТЕЛЯ\n\n       LoginController.$inject = ['$location', 'AuthenticationService', 'FlashService'];\n\n       function LoginController($location, AuthenticationService, FlashService) {\n\n           var vm = this;\n\n           vm.login = login;\n\n           (function initController() {\n               // reset login status\n               AuthenticationService.ClearCredentials();\n           })();\n\n           function login() {\n               vm.dataLoading = true;\n               AuthenticationService.Login(vm.username, vm.password, function (response) {\n                   if (response.success) {\n                       AuthenticationService.SetCredentials(vm.username, vm.password);\n                       $location.path('/');\n                   } else {\n                       FlashService.Error(response.message);\n                       vm.dataLoading = false;\n                   }\n               });\n           };\n       }",
+            "mainName": "LoginController",
+            "tag": "main",
+            "itemtype": "main",
+            "_main": true
+        },
+        "RegisterController": {
+            "name": "RegisterController",
+            "shortname": "RegisterController",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "app",
+            "namespace": "",
+            "file": "assets\\register\\register.controller.js",
+            "line": 8,
+            "description": "РЕГИСТРАЦИЯ ПОЛЬЗОВАТЕЛЯ\n\n       angular\n           .module('app')\n           .controller('RegisterController', RegisterController);\n\n       RegisterController.$inject = ['UserService',  '$location', '$rootScope', 'FlashService'];\n\n       function RegisterController(UserService, $location, $rootScope, FlashService) {\n           var vm = this;\n\n           vm.register = register;\n\n           function register() {\n               vm.dataLoading = true;\n               UserService.Create(vm.user)\n                   .then(function (response) {\n                       if (response.success) {\n                           FlashService.Success('Registration successful', true);\n                           $location.path('/login');\n                       } else {\n                           FlashService.Error(response.message);\n                           vm.dataLoading = false;\n                       }\n                   });\n           }\n       }",
+            "mainName": "RegisterController",
+            "tag": "main",
+            "itemtype": "main",
+            "_main": true
+        },
+        "APP": {
+            "name": "APP",
+            "shortname": "APP",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "app",
+            "namespace": "",
+            "file": "js\\app.js",
+            "line": 4,
+            "description": "ПРИЛОЖЕНИЕ РАЗРАБАТЫВАЛ ИСПОЛЬЗУЯ (Windows/Chrome/Node v8.9.1):<br>\n1. gulp;<br>\n2. webpack;<br>\n3. browser-sync;<br>\n4. angularjs;<br>\n5. yuidoc;\n    \nТОЧКА ВХОДА - ФАЙЛ frontend/js/app.js (самовызывающаяся функция).\n\n       angular\n           .module('app',  ['ngGrid', 'ngRoute', 'ngCookies', 'ui.sortable'])\n           .config(config)\n           .run(run);",
+            "mainName": "app",
+            "tag": "main",
+            "itemtype": "main",
+            "_main": true
+        },
+        "1_ЗАВИСИМОСТИ_ПРИЛОЖЕНИЯ": {
+            "name": "1_ЗАВИСИМОСТИ_ПРИЛОЖЕНИЯ",
+            "shortname": "1_ЗАВИСИМОСТИ_ПРИЛОЖЕНИЯ",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "app",
+            "namespace": "",
+            "file": "packageJson.js",
+            "line": 1,
+            "description": "ЗАВИСИМОСТИ ПРИЛОЖЕНИЯ.\n\n\t\"devDependencies\": {\n\t    \"assets-webpack-plugin\": \"^3.2.0\",\n\t    \"babel-core\": \"^6.4.0\",\n\t    \"babel-eslint\": \"^8.0.2\",\n\t    \"babel-loader\": \"^6.2.1\",\n\t    \"babel-preset-es2015\": \"^6.3.13\",\n\t    \"browser-sync\": \"^2.18.13\",\n\t    \"cookie\": \"^0.3.1\",\n\t    \"debug\": \"^3.1.0\",\n\t    \"debug-trace\": \"^2.2.1\",\n\t    \"del\": \"^2.2.0\",\n\t    \"express\": \"^3.21.2\",\n\t    \"fs\": \"0.0.1-security\",\n\t    \"gulp\": \"github:gulpjs/gulp#4.0\",\n\t    \"gulp-autoprefixer\": \"^4.0.0\",\n\t    \"gulp-babel\": \"^6.1.1\",\n\t    \"gulp-cached\": \"^1.1.0\",\n\t    \"gulp-concat\": \"^2.6.1\",\n\t    \"gulp-cssnano\": \"^2.1.0\",\n\t    \"gulp-debug\": \"^2.1.2\",\n\t    \"gulp-eslint\": \"^1.1.1\",\n\t    \"gulp-header\": \"^1.7.1\",\n\t    \"gulp-if\": \"^2.0.0\",\n\t    \"gulp-image-resize\": \"^0.7.1\",\n\t    \"gulp-imagemin\": \"^2.4.0\",\n\t    \"gulp-load-plugins\": \"^1.5.0\",\n\t    \"gulp-newer\": \"^1.1.0\",\n\t    \"gulp-notify\": \"^2.2.0\",\n\t    \"gulp-plumber\": \"^1.0.1\",\n\t    \"gulp-remember\": \"^0.3.1\",\n\t    \"gulp-rename\": \"^1.2.2\",\n\t    \"gulp-rev\": \"^6.0.1\",\n\t    \"gulp-rev-replace\": \"^0.4.3\",\n\t    \"gulp-sourcemaps\": \"^2.6.1\",\n\t    \"gulp-string-replace\": \"^0.4.0\",\n\t    \"gulp-stylus\": \"^2.6.0\",\n\t    \"gulp-svg-sprite\": \"^1.2.19\",\n\t    \"gulp-uglify\": \"^3.0.0\",\n\t    \"gulp-useref\": \"^3.0.4\",\n\t    \"gulplog\": \"^1.0.0\",\n\t    \"help-functions\": \"^1.0.55\",\n\t    \"json-loader\": \"^0.5.7\",\n\t    \"lazypipe\": \"^1.0.1\",\n\t    \"nconf\": \"^0.8.5\",\n\t    \"node-notifier\": \"^5.1.2\",\n\t    \"node-static\": \"^0.7.10\",\n\t    \"open\": \"0.0.5\",\n\t    \"stream-combiner2\": \"^1.1.1\",\n\t    \"stylus\": \"^0.54.5\",\n\t    \"through2\": \"^2.0.3\",\n\t    \"uglify-es\": \"^3.2.1\",\n\t    \"webpack\": \"^1.12.11\"\n\t  },\n\t  \"dependencies\": {\n\t    \"lodash\": \"^4.17.4\",\n\t    \"lodash.throttle\": \"^4.1.1\"\n\t  }",
+            "mainName": "yuidoc",
+            "tag": "main",
+            "itemtype": "main",
+            "_main": true
+        }
+    },
+    "elements": {},
+    "classitems": [
+        {
+            "file": "assets\\dist\\js\\datepicker.js",
+            "line": 602,
+            "description": "Updates datepicker options",
+            "params": [
+                {
+                    "name": "param",
+                    "description": "- parameter's name to update. If object then it will extend current options",
+                    "type": "String|Object"
+                },
+                {
+                    "name": "value",
+                    "description": "- new param value",
+                    "type": "String|Number|Object",
+                    "optional": true
+                }
+            ],
+            "class": "HomeController",
+            "module": "app"
+        },
+        {
+            "file": "assets\\dist\\js\\datepicker.js",
+            "line": 702,
+            "description": "Check if date is between minDate and maxDate",
+            "params": [
+                {
+                    "name": "date",
+                    "description": "- date object",
+                    "type": "Object"
+                },
+                {
+                    "name": "type",
+                    "description": "- cell type",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Boolean"
+            },
+            "access": "private",
+            "tagname": "",
+            "class": "HomeController",
+            "module": "app"
+        },
+        {
+            "file": "assets\\dist\\js\\datepicker.js",
+            "line": 1448,
+            "description": "Returns copy of date with hours and minutes equals to 0",
+            "params": [
+                {
+                    "name": "date",
+                    "description": "",
+                    "type": "Date"
+                }
+            ],
+            "class": "HomeController",
+            "module": "app"
+        },
+        {
+            "file": "assets\\dist\\js\\datepicker.js",
+            "line": 1637,
+            "description": "Calculates days number to render. Generates days html and returns it.",
+            "params": [
+                {
+                    "name": "date",
+                    "description": "- Date object",
+                    "type": "Object"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "String"
+            },
+            "access": "private",
+            "tagname": "",
+            "class": "HomeController",
+            "module": "app"
+        },
+        {
+            "file": "assets\\dist\\js\\datepicker.js",
+            "line": 1676,
+            "description": "Generates months html",
+            "params": [
+                {
+                    "name": "date",
+                    "description": "- date instance",
+                    "type": "Object"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "String"
+            },
+            "access": "private",
+            "tagname": "",
+            "class": "HomeController",
+            "module": "app"
+        },
+        {
+            "file": "assets\\dist\\js\\datepicker.js",
+            "line": 2004,
+            "description": "Sets minHours and minMinutes from date (usually it's a minDate)\nAlso changes minMinutes if current hours are bigger then @date hours",
+            "params": [
+                {
+                    "name": "date",
+                    "description": "",
+                    "type": "Date"
+                }
+            ],
+            "access": "private",
+            "tagname": "",
+            "class": "HomeController",
+            "module": "app"
+        },
+        {
+            "file": "assets\\dist\\js\\datepicker.js",
+            "line": 2045,
+            "description": "Looks for min/max hours/minutes and if current values\nare out of range sets valid values.",
+            "access": "private",
+            "tagname": "",
+            "class": "HomeController",
+            "module": "app"
+        },
+        {
+            "file": "assets\\dist\\js\\datepicker.js",
+            "line": 2119,
+            "description": "Sets minHours, minMinutes etc. from date. If date is not passed, than sets\nvalues from options",
+            "params": [
+                {
+                    "name": "date",
+                    "description": "- Date object, to get values from",
+                    "type": "Object",
+                    "optional": true
+                }
+            ],
+            "access": "private",
+            "tagname": "",
+            "class": "HomeController",
+            "module": "app"
+        },
+        {
+            "file": "assets\\dist\\js\\datepicker.js",
+            "line": 2143,
+            "description": "Calculates valid hour value to display in text input and datepicker's body.",
+            "params": [
+                {
+                    "name": "date",
+                    "description": "- date or hours",
+                    "type": "Date|Number"
+                },
+                {
+                    "name": "ampm",
+                    "description": "- 12 hours mode",
+                    "type": "Boolean",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "}",
+                "type": "Hours: *, dayPeriod: string"
+            },
+            "access": "private",
+            "tagname": "",
+            "class": "HomeController",
+            "module": "app"
+        },
+        {
+            "file": "assets\\home\\home.controller.js",
+            "line": 25,
+            "description": "<p>ВСЕ ЧТО \"ПРЕДАЕТСЯ\"\" В HTML</p>\n\n           vm.tasck_limit = 15; //ОГРАНИЧИТЕЛЬ ЗАДАЧ В ЛИСТЕ\n           vm.ngGridView = null;\n\n           vm.user = null;\n           vm.allUsers = [];\n           vm.deleteUser = deleteUser;\n\n           vm.exit_modal = exit_modal;\n           vm.savetasck = savetasck;\n           vm.edittasck = edittasck;\n           vm.deltasck = deltasck;\n           vm.addtasck = addtasck;\n           vm.def_click = def_click;\n           vm.finish_loader = finish_loader;\n           vm.start_loader = start_loader;\n           vm.logModels = logModels;\n           vm.my_alert = my_alert;\n           vm.change_list = change_list;\n           vm.change = false;\n\n           vm.rawScreens = [];\n           vm.sortingLog = [];\n\n           vm.resjsontasks = [];\n           vm.resgetJsonLists = [];\n\n           vm.sortableOptions = {\n               placeholder: \"app\",\n               connectWith: \".apps-container\",\n               update: function(event, ui) {\n                 if (// ensure we are in the first update() callback\n                     !ui.item.sortable.received &&\n                     // check that its an actual moving\n                     // between the two lists\n                     ui.item.sortable.source[0] !== ui.item.sortable.droptarget[0] &&\n                     // check the size limitation\n                     ui.item.sortable.droptargetModel.length >= vm.tasck_limit) {\n                   ui.item.sortable.cancel();\n                 }\n               },\n               stop: function(event, ui) {\n                 //!!! ОБНОВЛЯЕМ id_list У ПЕРЕМЕЩЕННОЙ ЗАДАЧИ !!!\n                 // var str = Number(ui.item.sortable.droptargetList[0].attributes.id.value.slice(7,10));\n                 // ui.item.sortable.model.id_list = str + 1\n                 \n                 for (let i = 0; i < vm.rawScreens.length; i++) {\n                   vm.rawScreens[i].map(function (x) {\n                       // console.log(x);\n                       x.id_list = i + 1; \n                   })\n                 }\n               }\n           };\n           $('#dtpckr').datepicker();",
+            "itemtype": "property",
+            "name": "ДАННЫЕ ДЛЯ HTML",
+            "type": "Object",
+            "static": 1,
+            "final": 1,
+            "class": "HomeController",
+            "module": "app"
+        },
+        {
+            "file": "assets\\home\\home.controller.js",
+            "line": 191,
+            "description": "ФУНКЦИОНАЛ makeList (id_list):<br>\nВОЗВРАЩАЕТ ОТФИЛЬТРОВАННЫЙ ПО ПОЛЮ - id_list МАССИВ ЗАДАЧ<br>\n\n               function makeList (id_list) {\n                   var filter_resjsontasks = [];\n                   filter_resjsontasks = vm.resjsontasks.filter(item => item.id_list == id_list);\n                   return filter_resjsontasks;\n               };",
+            "itemtype": "method",
+            "name": "makeList",
+            "params": [
+                {
+                    "name": "id_list",
+                    "description": "ID ЛИСТА",
+                    "type": "Integer"
+                }
+            ],
+            "return": {
+                "description": "filter_resjsontasks",
+                "type": "Object"
+            },
+            "class": "HomeController",
+            "module": "app"
+        },
+        {
+            "file": "assets\\home\\home.controller.js",
+            "line": 212,
+            "description": "ФУНКЦИОНАЛ createSheets (resgetJsonLists):<br>\nЦИКЛОМ СОЗДАЮТСЯ ЛИСТЫ. ЛИСТАМ ПРИСВАИВАЕТСЯ ИМЯ И ID<br> СОЗДАННЫЕ ЛИСТЫ ДОБАВЛЯЮТСЯ В МАССИВ vm.rawScreens\n\n               function createSheets(resgetJsonLists){\n                   for(let i=0; i < resgetJsonLists.length; i++){\n                       vm['list_' + resgetJsonLists[i].id] = makeList(resgetJsonLists[i].id);\n                       vm['list_' + resgetJsonLists[i].id].name = resgetJsonLists[i].name;\n                       vm.rawScreens.push(vm['list_' + resgetJsonLists[i].id]);\n                   };\n               };",
+            "itemtype": "method",
+            "name": "createSheets",
+            "params": [
+                {
+                    "name": "resgetJsonLists",
+                    "description": "МАССИВ ИМЕН ЛИСТОВ",
+                    "type": "Object"
+                }
+            ],
+            "class": "HomeController",
+            "module": "app"
+        },
+        {
+            "file": "assets\\home\\home.controller.js",
+            "line": 236,
+            "description": "ФУНКЦИОНАЛ initGrid ():<br>\n1. vm.ngGridView - ОТОБРАЖАЕТ ГРИД В HTML<br>\n2. vm.status - МАССИВ СТАТУСОВ ЗАДАЧИ (myCelTemp1 - SELECT ИЗ vm.status)<br>\n3. vm.dragndrop_list - МАССИВ ЛИСТОВ (myCelTemp2 - SELECT ИЗ vm.dragndrop_list) <br>\n4. ВЫВОД ПОЛЕЙ В GRID ПО ПОРЯДКУ СОРТИРОВКИ ПОЛЯ sort МАССИВА ridnameJsonLists<br>\n5. ДЛЯ ОТОБРАЖЕНИЯ В ТАБЛИЦЕ СОЗДАЕМ \"СТРОКОВЫЙ ОБЪЕКТ\"- str И ПУШИМ ЕГО В columnDefs\n           \n           for(let j=0; j < tt.length; j++){\n               if(tt[j].id != \"$$hashKey\") {\n                   if(tt[j].id == \"execution_status\" || tt[j].id == \"id_list\"){\n                       if(tt[j].id == \"execution_status\") {\n                           myCelTemp = myCelTemp1;\n                       }else{\n                           myCelTemp = myCelTemp2;\n                       };\n\n                       str = '{\"field\" : \"' + tt[j].id + '\"' + ',' + '\"cellTemplate\" : \"' + myCelTemp + '\"}' //' + '\"enableFiltering\" : ' + false + \n                       vm.ngGridView.columnDefs.push(JSON.parse(str)); \n                   }else{\n                       str = '{\"field\" : \"' + tt[j].id + '\"' + ',' + '\"displayName\" : \"' + gridnameJsonLists[j].id + '\"}' //' + '\"enableFiltering\" : ' + false + \n                       vm.ngGridView.columnDefs.push(JSON.parse(str)); \n                   }\n               }\n           };\n\n6. СКРЫВАЕМ ПОЛЕ ЕСЛИ ОНО ПРИСУТСТВУЕТ В МАССИВЕ notVisible ДЛЯ ОСТАЛЬНЫХ - ПЕРЕИМЕНОВЫВАЕМ ПОЛЯ ГРИДА\n           \n           for(let j=0; j < notVisible.length; j++){\n               for(let i=0; i < vm.ngGridView.columnDefs.length; i++){\n                   if(vm.ngGridView.columnDefs[i].field == notVisible[j]){\n                       vm.ngGridView.columnDefs[i].visible = false;\n                   }else{\n                       //НАХОДИМ ПО id (j) ИНДЕКС ЗАДАЧИ В МАССИВЕ vm.resjsontasks\n                       let firstIndex = find_index_by_id(gridnameJsonLists, vm.ngGridView.columnDefs[i].field);\n                       vm.ngGridView.columnDefs[i].displayName = gridnameJsonLists[firstIndex].gridname;\n                       vm.ngGridView.columnDefs[i].width = gridnameJsonLists[firstIndex].width;\n                   }\n               }\n           };\n\n7. ДОБАВЛЯЕМ КНОПКИ РЕДАКТИРОВАНИЯ И УДАЛЕНИЯ",
+            "itemtype": "method",
+            "name": "initGrid",
+            "class": "HomeController",
+            "module": "app"
+        },
+        {
+            "file": "assets\\home\\home.controller.js",
+            "line": 444,
+            "description": "ФУНКЦИОНАЛ addtasck (i):<br>\n1. ФОРМИРУЕТ ИЗ СТРОКИ ОБЪЕКТ-ЗАДАЧУ<br> \n2. ДОБАВЛЯЕТ ОБЪЕКТ В vm.resjsontasks <br>\n3. ОБНОВЛЯЕТ vm.rawScreens",
+            "itemtype": "method",
+            "name": "addtasck",
+            "params": [
+                {
+                    "name": "i",
+                    "description": "НОМЕР ЛИСТА DRAG&DROP",
+                    "type": "Integer"
+                }
+            ],
+            "class": "HomeController",
+            "module": "app"
+        },
+        {
+            "file": "assets\\home\\home.controller.js",
+            "line": 490,
+            "description": "ФУНКЦИОНАЛ edittasck (i, j, t_index):<br>\nОТКРЫТИЕ ЗАДАЧИ ДЛЯ ПОДРОБНОГО ПРОСМОТРА И ВОЗМОЖНОГО РЕДАКТИРОВАНИЯ",
+            "itemtype": "method",
+            "name": "edittasck",
+            "params": [
+                {
+                    "name": "i",
+                    "description": "НОМЕР ЛИСТА DRAG&DROP",
+                    "type": "Integer"
+                },
+                {
+                    "name": "j",
+                    "description": "id ЗАДАЧИ",
+                    "type": "Integer"
+                },
+                {
+                    "name": "t_index",
+                    "description": "ПОРЯДКОВЫЙ НОМЕР ЗАДАЧИ В DRAG&DROP",
+                    "type": "Integer"
+                }
+            ],
+            "class": "HomeController",
+            "module": "app"
+        },
+        {
+            "file": "assets\\home\\home.controller.js",
+            "line": 516,
+            "description": "ФУНКЦИОНАЛ find_index_by_id(source, id) :<br>\nПОИСК ИНДЕКСА ЗАДАЧИ В МАССИВЕ ПЕРЕДАННОГО ОБЪЕКТА - source ПО ПЕРЕДАННОМУ id\n\n               function find_index_by_id(source,id){\n                   let indexes = $.map(source, function(obj, index) {\n                           if(obj.id == id) {\n                               return index;\n                           }\n                       }) \n                   return indexes[0];\n               };",
+            "itemtype": "method",
+            "name": "find_index_by_id",
+            "params": [
+                {
+                    "name": "source",
+                    "description": "МАССИВ ОБЪЕКТОВ",
+                    "type": "Object"
+                },
+                {
+                    "name": "index",
+                    "description": "id ЗАДАЧИ",
+                    "type": "Integer"
+                }
+            ],
+            "return": {
+                "description": "НАЙДЕННЫЙ ИНДЕКС",
+                "type": "Integer"
+            },
+            "class": "HomeController",
+            "module": "app"
+        },
+        {
+            "file": "assets\\home\\home.controller.js",
+            "line": 545,
+            "itemtype": "method",
+            "name": "savetasck",
+            "description": "ФУНКЦИОНАЛ savetasck() :<br>\n1. ПОИСК ИНДЕКСА ЗАДАЧИ В МАССИВЕ vm.resjsontasks<br> \n2. ОБНОВЛЕНИЕ ПОЛЕЙ В ЗАДАЧЕ (ИЗ МАССИВА vm.resjsontasks)<br>\n3. ЕСЛИ БЫЛ ИЗМЕНЕН СТАТУС ЗАДАЧИ - ОБНОВЛЕНИЕ МАССИВА vm.rawScreens<br>",
+            "class": "HomeController",
+            "module": "app"
+        },
+        {
+            "file": "assets\\login\\login.controller.js",
+            "line": 51,
+            "description": "initController <br> СБРОСИТЬ login СТАТУС - AuthenticationService.ClearCredentials()<br>",
+            "itemtype": "method",
+            "name": "initController",
+            "class": "LoginController",
+            "module": "app"
+        },
+        {
+            "file": "assets\\login\\login.controller.js",
+            "line": 61,
+            "description": "login <br> ПРОВЕРКА username И password <br> ЕСЛИ ВСЕ ОК - $location.path('/')",
+            "itemtype": "method",
+            "name": "login",
+            "class": "LoginController",
+            "module": "app"
+        },
+        {
+            "file": "assets\\register\\register.controller.js",
+            "line": 49,
+            "description": "register <br> СОЗДАЕТ (РЕГИСТРУЕТ) ПОЛЬЗОВАТЕЛЯ <br> ИНФОРМИРУЕТ О РЕЗУЛЬТАТЕ РЕГИСТРАЦИИ <br> ПЕРЕХОД НА СТРАНИЦУ АУТЕНТИФИКАЦИИ ( $location.path('/login'); )",
+            "itemtype": "method",
+            "name": "register",
+            "class": "RegisterController",
+            "module": "app"
+        },
+        {
+            "file": "js\\app.js",
+            "line": 29,
+            "description": "Роутер",
+            "itemtype": "method",
+            "name": "config",
+            "params": [
+                {
+                    "name": "$routeProvider",
+                    "description": ""
+                },
+                {
+                    "name": "$locationProvider",
+                    "description": ""
+                }
+            ],
+            "class": "APP",
+            "module": "app"
+        },
+        {
+            "file": "js\\app.js",
+            "line": 60,
+            "description": "Сохранить пользователя после обновления страницы <br> Перенаправлять на страницу входа в систему, если не был вход в систему",
+            "itemtype": "method",
+            "name": "run",
+            "params": [
+                {
+                    "name": "$rootScope",
+                    "description": ""
+                },
+                {
+                    "name": "$location",
+                    "description": ""
+                },
+                {
+                    "name": "$cookies",
+                    "description": ""
+                },
+                {
+                    "name": "$http",
+                    "description": ""
+                }
+            ],
+            "class": "APP",
+            "module": "app"
+        }
+    ],
+    "warnings": [
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " assets\\dist\\js\\datepicker.js:702"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " assets\\dist\\js\\datepicker.js:1637"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " assets\\dist\\js\\datepicker.js:1676"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " assets\\dist\\js\\datepicker.js:2143"
+        },
+        {
+            "message": "Missing item type\nUpdates datepicker options",
+            "line": " assets\\dist\\js\\datepicker.js:602"
+        },
+        {
+            "message": "Missing item type\nCheck if date is between minDate and maxDate",
+            "line": " assets\\dist\\js\\datepicker.js:702"
+        },
+        {
+            "message": "Missing item type\nReturns copy of date with hours and minutes equals to 0",
+            "line": " assets\\dist\\js\\datepicker.js:1448"
+        },
+        {
+            "message": "Missing item type\nCalculates days number to render. Generates days html and returns it.",
+            "line": " assets\\dist\\js\\datepicker.js:1637"
+        },
+        {
+            "message": "Missing item type\nGenerates months html",
+            "line": " assets\\dist\\js\\datepicker.js:1676"
+        },
+        {
+            "message": "Missing item type\nSets minHours and minMinutes from date (usually it's a minDate)\nAlso changes minMinutes if current hours are bigger then @date hours",
+            "line": " assets\\dist\\js\\datepicker.js:2004"
+        },
+        {
+            "message": "Missing item type\nLooks for min/max hours/minutes and if current values\nare out of range sets valid values.",
+            "line": " assets\\dist\\js\\datepicker.js:2045"
+        },
+        {
+            "message": "Missing item type\nSets minHours, minMinutes etc. from date. If date is not passed, than sets\nvalues from options",
+            "line": " assets\\dist\\js\\datepicker.js:2119"
+        },
+        {
+            "message": "Missing item type\nCalculates valid hour value to display in text input and datepicker's body.",
+            "line": " assets\\dist\\js\\datepicker.js:2143"
+        }
+    ]
+}

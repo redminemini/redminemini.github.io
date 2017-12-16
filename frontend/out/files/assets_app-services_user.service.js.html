@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>assets\app-services\user.service.js</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="icon" href="../assets/favicon.ico">
+    <script src="http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+                <h1><img src="../assets/css/logo.png" title="" width="117" height="52"></h1>
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: </em>
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+                    <h2 class="off-left">APIs</h2>
+                    <div id="api-tabview" class="tabview">
+                        <ul class="tabs">
+                            <li><a href="#api-classes">Classes</a></li>
+                            <li><a href="#api-modules">Modules</a></li>
+                        </ul>
+                
+                        <div id="api-tabview-filter">
+                            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+                        </div>
+                
+                        <div id="api-tabview-panel">
+                            <ul id="api-classes" class="apis classes">
+                                <li><a href="../classes/1_ЗАВИСИМОСТИ_ПРИЛОЖЕНИЯ.html">1_ЗАВИСИМОСТИ_ПРИЛОЖЕНИЯ</a></li>
+                                <li><a href="../classes/APP.html">APP</a></li>
+                                <li><a href="../classes/HomeController.html">HomeController</a></li>
+                                <li><a href="../classes/LoginController.html">LoginController</a></li>
+                                <li><a href="../classes/RegisterController.html">RegisterController</a></li>
+                                <li><a href="../classes/ServiceAuthentication.html">ServiceAuthentication</a></li>
+                                <li><a href="../classes/ServiceFlash.html">ServiceFlash</a></li>
+                                <li><a href="../classes/ServiceJson.html">ServiceJson</a></li>
+                                <li><a href="../classes/ServiceUser.html">ServiceUser</a></li>
+                                <li><a href="../classes/ServiceUserlocalStorage.html">ServiceUserlocalStorage</a></li>
+                            </ul>
+                
+                
+                            <ul id="api-modules" class="apis modules">
+                                <li><a href="../modules/app.html">app</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+                    Show:
+                    <label for="api-show-inherited">
+                        <input type="checkbox" id="api-show-inherited" checked>
+                        Inherited
+                    </label>
+            
+                    <label for="api-show-protected">
+                        <input type="checkbox" id="api-show-protected">
+                        Protected
+                    </label>
+            
+                    <label for="api-show-private">
+                        <input type="checkbox" id="api-show-private">
+                        Private
+                    </label>
+                    <label for="api-show-deprecated">
+                        <input type="checkbox" id="api-show-deprecated">
+                        Deprecated
+                    </label>
+            
+                </div>
+            
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+<h1 class="file-heading">File: assets\app-services\user.service.js</h1>
+
+<div class="file">
+    <pre class="code prettyprint linenums">
+﻿(function () {
+    &#x27;use strict&#x27;;
+
+    angular
+        .module(&#x27;app&#x27;)
+        .factory(&#x27;UserService&#x27;, UserService);
+
+    /**
+    * @class ServiceUser
+    * @module app
+    * @main ServiceUser
+    */  
+
+    UserService.$inject = [&#x27;$http&#x27;];
+    function UserService($http) {
+        var service = {};
+
+        service.GetAll = GetAll;
+        service.GetById = GetById;
+        service.GetByUsername = GetByUsername;
+        service.Create = Create;
+        service.Update = Update;
+        service.Delete = Delete;
+
+        return service;
+
+        function GetAll() {
+            return $http.get(&#x27;/api/users&#x27;).then(handleSuccess, handleError(&#x27;Error getting all users&#x27;));
+        }
+
+        function GetById(id) {
+            return $http.get(&#x27;/api/users/&#x27; + id).then(handleSuccess, handleError(&#x27;Error getting user by id&#x27;));
+        }
+
+        function GetByUsername(username) {
+            return $http.get(&#x27;/api/users/&#x27; + username).then(handleSuccess, handleError(&#x27;Error getting user by username&#x27;));
+        }
+
+        function Create(user) {
+            return $http.post(&#x27;/api/users&#x27;, user).then(handleSuccess, handleError(&#x27;Error creating user&#x27;));
+        }
+
+        function Update(user) {
+            return $http.put(&#x27;/api/users/&#x27; + user.id, user).then(handleSuccess, handleError(&#x27;Error updating user&#x27;));
+        }
+
+        function Delete(id) {
+            return $http.delete(&#x27;/api/users/&#x27; + id).then(handleSuccess, handleError(&#x27;Error deleting user&#x27;));
+        }
+
+        // private functions
+
+        function handleSuccess(res) {
+            return res.data;
+        }
+
+        function handleError(error) {
+            return function () {
+                return { success: false, message: error };
+            };
+        }
+    }
+
+})();
+
+    </pre>
+</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+</body>
+</html>

@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>assets\home\home.controller.js</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="icon" href="../assets/favicon.ico">
+    <script src="http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+                <h1><img src="../assets/css/logo.png" title="" width="117" height="52"></h1>
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: </em>
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+                    <h2 class="off-left">APIs</h2>
+                    <div id="api-tabview" class="tabview">
+                        <ul class="tabs">
+                            <li><a href="#api-classes">Classes</a></li>
+                            <li><a href="#api-modules">Modules</a></li>
+                        </ul>
+                
+                        <div id="api-tabview-filter">
+                            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+                        </div>
+                
+                        <div id="api-tabview-panel">
+                            <ul id="api-classes" class="apis classes">
+                                <li><a href="../classes/1_ЗАВИСИМОСТИ_ПРИЛОЖЕНИЯ.html">1_ЗАВИСИМОСТИ_ПРИЛОЖЕНИЯ</a></li>
+                                <li><a href="../classes/APP.html">APP</a></li>
+                                <li><a href="../classes/HomeController.html">HomeController</a></li>
+                                <li><a href="../classes/LoginController.html">LoginController</a></li>
+                                <li><a href="../classes/RegisterController.html">RegisterController</a></li>
+                                <li><a href="../classes/ServiceAuthentication.html">ServiceAuthentication</a></li>
+                                <li><a href="../classes/ServiceFlash.html">ServiceFlash</a></li>
+                                <li><a href="../classes/ServiceJson.html">ServiceJson</a></li>
+                                <li><a href="../classes/ServiceUser.html">ServiceUser</a></li>
+                                <li><a href="../classes/ServiceUserlocalStorage.html">ServiceUserlocalStorage</a></li>
+                            </ul>
+                
+                
+                            <ul id="api-modules" class="apis modules">
+                                <li><a href="../modules/app.html">app</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+                    Show:
+                    <label for="api-show-inherited">
+                        <input type="checkbox" id="api-show-inherited" checked>
+                        Inherited
+                    </label>
+            
+                    <label for="api-show-protected">
+                        <input type="checkbox" id="api-show-protected">
+                        Protected
+                    </label>
+            
+                    <label for="api-show-private">
+                        <input type="checkbox" id="api-show-private">
+                        Private
+                    </label>
+                    <label for="api-show-deprecated">
+                        <input type="checkbox" id="api-show-deprecated">
+                        Deprecated
+                    </label>
+            
+                </div>
+            
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+<h1 class="file-heading">File: assets\home\home.controller.js</h1>
+
+<div class="file">
+    <pre class="code prettyprint linenums">
+﻿(function () {
+    &#x27;use strict&#x27;;
+
+    angular
+        .module(&#x27;app&#x27;)
+        .controller(&#x27;HomeController&#x27;, HomeController);
+
+        /**
+        * ПРЕДОСТАВЛЕНИЕ ДАННЫХ В ВИДЕ DRAG&amp;DROP И ng-GRID
+
+            HomeController.$inject = [&#x27;UserService&#x27;, &#x27;JsonService&#x27;, &#x27;$rootScope&#x27;];
+            ........
+
+        * @class HomeController
+        * @module app
+        * @main HomeController
+        */
+
+    HomeController.$inject = [&#x27;UserService&#x27;, &#x27;JsonService&#x27;, &#x27;$rootScope&#x27;];
+
+    function HomeController(UserService, JsonService, $rootScope) {
+        var vm = this;
+
+    /*========================ВСЕ ЧТО НУЖНО ДЛЯ HTML========================*/
+        /**
+         * &lt;p&gt;ВСЕ ЧТО &quot;ПРЕДАЕТСЯ&quot;&quot; В HTML&lt;/p&gt;
+
+            vm.tasck_limit = 15; //ОГРАНИЧИТЕЛЬ ЗАДАЧ В ЛИСТЕ
+            vm.ngGridView = null;
+
+            vm.user = null;
+            vm.allUsers = [];
+            vm.deleteUser = deleteUser;
+
+            vm.exit_modal = exit_modal;
+            vm.savetasck = savetasck;
+            vm.edittasck = edittasck;
+            vm.deltasck = deltasck;
+            vm.addtasck = addtasck;
+            vm.def_click = def_click;
+            vm.finish_loader = finish_loader;
+            vm.start_loader = start_loader;
+            vm.logModels = logModels;
+            vm.my_alert = my_alert;
+            vm.change_list = change_list;
+            vm.change = false;
+
+            vm.rawScreens = [];
+            vm.sortingLog = [];
+
+            vm.resjsontasks = [];
+            vm.resgetJsonLists = [];
+
+            vm.sortableOptions = {
+                placeholder: &quot;app&quot;,
+                connectWith: &quot;.apps-container&quot;,
+                update: function(event, ui) {
+                  if (// ensure we are in the first update() callback
+                      !ui.item.sortable.received &amp;&amp;
+                      // check that its an actual moving
+                      // between the two lists
+                      ui.item.sortable.source[0] !== ui.item.sortable.droptarget[0] &amp;&amp;
+                      // check the size limitation
+                      ui.item.sortable.droptargetModel.length &gt;= vm.tasck_limit) {
+                    ui.item.sortable.cancel();
+                  }
+                },
+                stop: function(event, ui) {
+                  //!!! ОБНОВЛЯЕМ id_list У ПЕРЕМЕЩЕННОЙ ЗАДАЧИ !!!
+                  // var str = Number(ui.item.sortable.droptargetList[0].attributes.id.value.slice(7,10));
+                  // ui.item.sortable.model.id_list = str + 1
+                  
+                  for (let i = 0; i &lt; vm.rawScreens.length; i++) {
+                    vm.rawScreens[i].map(function (x) {
+                        // console.log(x);
+                        x.id_list = i + 1; 
+                    })
+                  }
+                }
+            };
+            $(&#x27;#dtpckr&#x27;).datepicker();
+
+         * @property ДАННЫЕ ДЛЯ HTML
+         * @type Object
+         * @static
+         * @final
+         */
+        vm.tasck_limit = 15; //ОГРАНИЧИТЕЛЬ ЗАДАЧ В ЛИСТЕ
+        vm.ngGridView = null;
+
+        vm.user = null;
+        vm.allUsers = [];
+        vm.deleteUser = deleteUser;
+
+        vm.exit_modal = exit_modal;
+        vm.savetasck = savetasck;
+        vm.edittasck = edittasck;
+        vm.deltasck = deltasck;
+        vm.addtasck = addtasck;
+        vm.def_click = def_click;
+        vm.finish_loader = finish_loader;
+        vm.start_loader = start_loader;
+        vm.logModels = logModels;
+        vm.my_alert = my_alert;
+        vm.change_list = change_list;
+        vm.change = false;
+
+        vm.rawScreens = [];
+        vm.sortingLog = [];
+
+        vm.resjsontasks = [];
+        vm.resgetJsonLists = [];
+
+        vm.sortableOptions = {
+            placeholder: &quot;app&quot;,
+            connectWith: &quot;.apps-container&quot;,
+            update: function(event, ui) {
+              if (// ensure we are in the first update() callback
+                  !ui.item.sortable.received &amp;&amp;
+                  // check that its an actual moving
+                  // between the two lists
+                  ui.item.sortable.source[0] !== ui.item.sortable.droptarget[0] &amp;&amp;
+                  // check the size limitation
+                  ui.item.sortable.droptargetModel.length &gt;= vm.tasck_limit) {
+                ui.item.sortable.cancel();
+              }
+            },
+            stop: function(event, ui) {
+              //!!! ОБНОВЛЯЕМ id_list У ПЕРЕМЕЩЕННОЙ ЗАДАЧИ !!!
+              // var str = Number(ui.item.sortable.droptargetList[0].attributes.id.value.slice(7,10));
+              // ui.item.sortable.model.id_list = str + 1
+              
+              for (let i = 0; i &lt; vm.rawScreens.length; i++) {
+                vm.rawScreens[i].map(function (x) {
+                    // console.log(x);
+                    x.id_list = i + 1; 
+                })
+              }
+            }
+        }; 
+
+    /*==============================ИНИЦИАЦИЯ==============================*/
+        $(&#x27;#dtpckr&#x27;).datepicker();
+
+        var gridnameJsonLists = [];
+
+        //ИНИЦИИРУЕМ КОНТРОЛЛЕР
+        initController();
+
+        //АГРЕГАТНАЯ ФУНКЦИЯ ИНИЦИИ КОНТРОЛЛЕРА СОСТОИТ ИЗ НЕСКОЛЬКИХ &quot;ВЫЗЫВАЮЩИХ&quot;&quot; ФУНКЦИЙ
+        function initController() {
+
+            //ЗАГРУЖАЕМ ТЕКУЩЕГО ЮЗЕРА ФАБРИКА UserService
+            loadCurrentUser(); //frontend/assets/app-services/user.service.js
+
+            //ЗАГРУЖАЕМ ВСЕХ ЮЗЕРОВ ФАБРИКА UserService
+            loadAllUsers(); //frontend/assets/app-services/user.service.js       
+
+            // ИМПОРТИРУЕМ СПИСОК ЛИСТОВ ФАБРИКА UserService
+            getJsonLists(); //frontend/assets/app-services/json_service.js
+
+            //ИМПОРТИРУЕМ СПИСОК ЗАДАЧ ФАБРИКА UserService 
+            getJsonTasks(); //frontend/assets/app-services/json_service.js
+
+            //СОЗДАЕМ СОДЕРЖИМОЕ ДЛЯ ДРАГнДРОП ЛИСТОВ
+            createSheets(vm.resgetJsonLists);
+
+            // ИМПОРТИРУЕМ СПИСОК ИМЕН СТОЛБЦОВ ГРИДА
+            getJsonGridname();
+
+            //СОЗДАЁМ ГРИД
+            initGrid();
+        }; 
+
+    /*==========================ОПЕРАТИВНЫЕ ФУНКЦИИ==========================*/
+        //ФУНКЦИЯ ИМПОРТА СПИСКА ИМЕН ПОЛЕЙ ГРИДА
+        function getJsonGridname(){
+            gridnameJsonLists = JsonService.getResultFromJson(&#x27;db/gridname.json&#x27;)
+        };
+
+        //ФУНКЦИЯ ИМПОРТА СПИСКА ЛИСТОВ
+        function getJsonLists(){
+            vm.resgetJsonLists = JsonService.getResultFromJson(&#x27;db/listsName.json&#x27;)
+        };
+
+        //ФУНКЦИЯ ИМПОРТА СПИСКА ЗАДАЧ
+        function getJsonTasks(){
+            vm.resjsontasks = JsonService.getResultFromJson(&#x27;db/tasks.json&#x27;)
+        };
+
+        /**
+         * @description ФУНКЦИОНАЛ makeList (id_list):&lt;br&gt;
+         * ВОЗВРАЩАЕТ ОТФИЛЬТРОВАННЫЙ ПО ПОЛЮ - id_list МАССИВ ЗАДАЧ&lt;br&gt;
+
+                function makeList (id_list) {
+                    var filter_resjsontasks = [];
+                    filter_resjsontasks = vm.resjsontasks.filter(item =&gt; item.id_list == id_list);
+                    return filter_resjsontasks;
+                };
+
+         * @method makeList
+         * @param {Integer} id_list ID ЛИСТА
+         * @return {Object} filter_resjsontasks
+         */ 
+        //ФУНКЦИЯ НАПОЛНЕНИЯ КАЖДОГО ЛИСТА ЗАДАЧАМИ (ПО id_list) ВЫЗЫВАЕТСЯ ИЗ  createSheets()
+        function makeList (id_list) {
+            var filter_resjsontasks = [];
+            filter_resjsontasks = vm.resjsontasks.filter(item =&gt; item.id_list == id_list);
+            return filter_resjsontasks;
+        };
+
+        /**
+         * @description ФУНКЦИОНАЛ createSheets (resgetJsonLists):&lt;br&gt;
+         * ЦИКЛОМ СОЗДАЮТСЯ ЛИСТЫ. ЛИСТАМ ПРИСВАИВАЕТСЯ ИМЯ И ID&lt;br&gt; СОЗДАННЫЕ ЛИСТЫ ДОБАВЛЯЮТСЯ В МАССИВ vm.rawScreens
+
+                function createSheets(resgetJsonLists){
+                    for(let i=0; i &lt; resgetJsonLists.length; i++){
+                        vm[&#x27;list_&#x27; + resgetJsonLists[i].id] = makeList(resgetJsonLists[i].id);
+                        vm[&#x27;list_&#x27; + resgetJsonLists[i].id].name = resgetJsonLists[i].name;
+                        vm.rawScreens.push(vm[&#x27;list_&#x27; + resgetJsonLists[i].id]);
+                    };
+                };
+
+         * @method createSheets
+         * @param {Object} resgetJsonLists МАССИВ ИМЕН ЛИСТОВ
+         */ 
+        //ФУНКЦИЯ СОЗДАНИЯ ЛИСТОВ
+        function createSheets(resgetJsonLists){
+            for(let i=0; i &lt; resgetJsonLists.length; i++){
+                vm[&#x27;list_&#x27; + resgetJsonLists[i].id] = makeList(resgetJsonLists[i].id);
+                vm[&#x27;list_&#x27; + resgetJsonLists[i].id].name = resgetJsonLists[i].name;
+                vm.rawScreens.push(vm[&#x27;list_&#x27; + resgetJsonLists[i].id]);
+            };
+        };
+
+        /**
+         * @description ФУНКЦИОНАЛ initGrid ():&lt;br&gt;
+         * 1. vm.ngGridView - ОТОБРАЖАЕТ ГРИД В HTML&lt;br&gt;
+         * 2. vm.status - МАССИВ СТАТУСОВ ЗАДАЧИ (myCelTemp1 - SELECT ИЗ vm.status)&lt;br&gt;
+         * 3. vm.dragndrop_list - МАССИВ ЛИСТОВ (myCelTemp2 - SELECT ИЗ vm.dragndrop_list) &lt;br&gt;
+         * 4. ВЫВОД ПОЛЕЙ В GRID ПО ПОРЯДКУ СОРТИРОВКИ ПОЛЯ sort МАССИВА ridnameJsonLists&lt;br&gt;
+         * 5. ДЛЯ ОТОБРАЖЕНИЯ В ТАБЛИЦЕ СОЗДАЕМ &quot;СТРОКОВЫЙ ОБЪЕКТ&quot;- str И ПУШИМ ЕГО В columnDefs
+            
+            for(let j=0; j &lt; tt.length; j++){
+                if(tt[j].id != &quot;$$hashKey&quot;) {
+                    if(tt[j].id == &quot;execution_status&quot; || tt[j].id == &quot;id_list&quot;){
+                        if(tt[j].id == &quot;execution_status&quot;) {
+                            myCelTemp = myCelTemp1;
+                        }else{
+                            myCelTemp = myCelTemp2;
+                        };
+
+                        str = &#x27;{&quot;field&quot; : &quot;&#x27; + tt[j].id + &#x27;&quot;&#x27; + &#x27;,&#x27; + &#x27;&quot;cellTemplate&quot; : &quot;&#x27; + myCelTemp + &#x27;&quot;}&#x27; //&#x27; + &#x27;&quot;enableFiltering&quot; : &#x27; + false + 
+                        vm.ngGridView.columnDefs.push(JSON.parse(str)); 
+                    }else{
+                        str = &#x27;{&quot;field&quot; : &quot;&#x27; + tt[j].id + &#x27;&quot;&#x27; + &#x27;,&#x27; + &#x27;&quot;displayName&quot; : &quot;&#x27; + gridnameJsonLists[j].id + &#x27;&quot;}&#x27; //&#x27; + &#x27;&quot;enableFiltering&quot; : &#x27; + false + 
+                        vm.ngGridView.columnDefs.push(JSON.parse(str)); 
+                    }
+                }
+            };
+
+         * 6. СКРЫВАЕМ ПОЛЕ ЕСЛИ ОНО ПРИСУТСТВУЕТ В МАССИВЕ notVisible ДЛЯ ОСТАЛЬНЫХ - ПЕРЕИМЕНОВЫВАЕМ ПОЛЯ ГРИДА
+            
+            for(let j=0; j &lt; notVisible.length; j++){
+                for(let i=0; i &lt; vm.ngGridView.columnDefs.length; i++){
+                    if(vm.ngGridView.columnDefs[i].field == notVisible[j]){
+                        vm.ngGridView.columnDefs[i].visible = false;
+                    }else{
+                        //НАХОДИМ ПО id (j) ИНДЕКС ЗАДАЧИ В МАССИВЕ vm.resjsontasks
+                        let firstIndex = find_index_by_id(gridnameJsonLists, vm.ngGridView.columnDefs[i].field);
+                        vm.ngGridView.columnDefs[i].displayName = gridnameJsonLists[firstIndex].gridname;
+                        vm.ngGridView.columnDefs[i].width = gridnameJsonLists[firstIndex].width;
+                    }
+                }
+            };
+
+         * 7. ДОБАВЛЯЕМ КНОПКИ РЕДАКТИРОВАНИЯ И УДАЛЕНИЯ
+         * @method initGrid
+         */
+        //ФУНКЦИЯ СОЗДАНИЯ ГРИДА
+        function initGrid() {
+        
+            vm.ngGridView = {
+                data: &#x27;vm.resjsontasks&#x27;,
+                showSelectionCheckbox: true, // ОБЩИЙ ЧЕКБОК
+                showFooter: true, // итого
+                enableColumnResize: true,
+
+                enableCellSelection: false,
+                enableRowSelection: true,           
+                enableCellEdit: false, //true (если скрыти КОРНЕВЫЕ ПОЛЯ!!!) false
+                
+                headerRowHeight: 65,
+                showFilter: true,
+                filterOptions: vm.filterOptions,
+                columnDefs: []
+            };
+
+            vm.filterOptions = {
+                filterText: &quot;&quot;,
+                useExternalFilter: true
+            };
+
+            let str;
+
+            /*ДОБАВЛЯЕМ ЧЕКБОКС
+            let che1 = &#x27;&lt;div class=\&#x27;ngSelectionCell\&#x27;&gt;&lt;input tabindex=\&#x27;-1\&#x27; class=\&#x27;ngSelectionCheckbox\&#x27; type=\&#x27;checkbox\&#x27; ng-click=\&#x27;vm.my_alert(row.entity.id,row.entity.id_list)\&#x27; ng-checked=\&#x27;row.selected\&#x27; /&gt; Some text here&lt;/div&gt;&quot;&#x27;;
+            str =&#x27;{&quot;field&quot;: &quot;dude&quot;, &quot;displayName&quot;: &quot;N&quot;, &quot;cellClass&quot;: &quot;grid-align&quot;, &quot;width&quot;: 140, &quot;cellTemplate&quot;: &quot;&#x27; + che1 + &#x27;}&#x27;
+            vm.ngGridView.columnDefs.push(JSON.parse(str));
+            */
+
+            vm.status = [
+                {id: 1, name:&#x27;Ожидает&#x27;},
+                {id: 2, name:&#x27;В работе&#x27;},
+                {id: 3, name:&#x27;Выполнено&#x27;},
+            ];
+
+            let myCelTemp;
+            let myCelTemp1 = &#x27;&lt;select disabled ng-cell-input &#x27;
+                                + &#x27;ng-options=\&#x27;s.id as s.name for s in vm.status\&#x27;&#x27;
+                                + &#x27;ng-class=\&#x27;colt\&#x27;&#x27;
+                                + &#x27;ng-model=\&#x27;COL_FIELD\&#x27;&#x27;
+                                + &#x27;ng-input=\&#x27;COL_FIELD\&#x27;&#x27;
+                                + &#x27;data-placeholder=\&#x27;-- Select One --\&#x27;&gt;&#x27;
+                            + &#x27;&lt;/select&gt;&#x27;
+
+
+            vm.dragndrop_list = [
+                {id: 1, name:&#x27;План&#x27;},
+                {id: 2, name:&#x27;В процессе&#x27;},
+                {id: 3, name:&#x27;Готово&#x27;},
+            ];
+
+            let myCelTemp2 = &#x27;&lt;select disabled ng-cell-input &#x27;
+                        + &#x27;ng-options=\&#x27;s.id as s.name for s in vm.dragndrop_list\&#x27;&#x27;
+                        + &#x27;ng-class=\&#x27;colt\&#x27;&#x27;
+                        + &#x27;ng-model=\&#x27;COL_FIELD\&#x27;&#x27;
+                        + &#x27;ng-input=\&#x27;COL_FIELD\&#x27;&#x27;
+                        + &#x27;data-placeholder=\&#x27;-- Select One --\&#x27;&gt;&#x27;
+                    + &#x27;&lt;/select&gt;&#x27;
+
+            /* СОРТИРУЕМ gridnameJsonLists ДЛЯ ОТОБРАЖЕНИЯ СТТОЛБЦОВ ЗАДАЧ В СООТВЕТСТВИЕ С
+            С ПОЛЕМ sort gridnameJsonLists */
+            let tt = gridnameJsonLists.sort((a,b) =&gt; a.sort - b.sort);
+
+            /*ДЛЯ ОТОБРАЖЕНИЯ В ТАБЛИЦЕ СОЗДАЕМ &quot;СТРОКОВЫЙ ОБЪЕКТ&quot;- str
+            И ПУШИМ ЕГО В columnDefs*/
+            for(let j=0; j &lt; tt.length; j++){
+                if(tt[j].id != &quot;$$hashKey&quot;) {
+                    if(tt[j].id == &quot;execution_status&quot; || tt[j].id == &quot;id_list&quot;){
+                        if(tt[j].id == &quot;execution_status&quot;) {
+                            myCelTemp = myCelTemp1;
+                        }else{
+                            myCelTemp = myCelTemp2;
+                        };
+
+                        str = &#x27;{&quot;field&quot; : &quot;&#x27; + tt[j].id + &#x27;&quot;&#x27; + &#x27;,&#x27; + &#x27;&quot;cellTemplate&quot; : &quot;&#x27; + myCelTemp + &#x27;&quot;}&#x27; //&#x27; + &#x27;&quot;enableFiltering&quot; : &#x27; + false + 
+                        vm.ngGridView.columnDefs.push(JSON.parse(str)); 
+                    }else{
+                        str = &#x27;{&quot;field&quot; : &quot;&#x27; + tt[j].id + &#x27;&quot;&#x27; + &#x27;,&#x27; + &#x27;&quot;displayName&quot; : &quot;&#x27; + gridnameJsonLists[j].id + &#x27;&quot;}&#x27; //&#x27; + &#x27;&quot;enableFiltering&quot; : &#x27; + false + 
+                        vm.ngGridView.columnDefs.push(JSON.parse(str));  
+                    }
+                }
+            };
+
+            let notVisible = [&#x27;id&#x27;];//&#x27;id_list&#x27;
+
+            //СКРЫВАЕМ ПОЛЕ ЕСЛИ ОНО ПРИСУТСТВУЕТ В МАССИВЕ notVisible
+            //ДЛЯ ОСТАЛЬНЫХ - ПЕРЕИМЕНОВЫВАЕМ ПОЛЯ ГРИДА
+            for(let j=0; j &lt; notVisible.length; j++){
+                for(let i=0; i &lt; vm.ngGridView.columnDefs.length; i++){
+                    if(vm.ngGridView.columnDefs[i].field == notVisible[j]){
+                        vm.ngGridView.columnDefs[i].visible = false;
+                    }else{
+                        //НАХОДИМ ПО id (j) ИНДЕКС ЗАДАЧИ В МАССИВЕ vm.resjsontasks
+                        let firstIndex = find_index_by_id(gridnameJsonLists, vm.ngGridView.columnDefs[i].field);
+                        vm.ngGridView.columnDefs[i].displayName = gridnameJsonLists[firstIndex].gridname;
+                        vm.ngGridView.columnDefs[i].width = gridnameJsonLists[firstIndex].width;
+                    }
+                }
+            };
+
+            /*ДОБАВЛЯЕМ КНОПКУ РЕДАКТИРОВАНИЯ*/
+            let che = &#x27;&lt;i class=\&#x27;fa fa-pencil-square-o btn btn-success btn-sm\&#x27; ng-click=\&#x27;vm.my_alert(row.entity.id,row.entity.id_list,1)\&#x27;&gt;&lt;/i&gt;&quot;&#x27;;
+            str =&#x27;{&quot;field&quot;: &quot;edit&quot;, &quot;displayName&quot;: &quot;...&quot;, &quot;width&quot;: 40, &quot;cellTemplate&quot;: &quot;&#x27; + che + &#x27;}&#x27;
+            // console.log(str); 
+            vm.ngGridView.columnDefs.push(JSON.parse(str));
+
+            // /*ДОБАВЛЯЕМ КНОПКУ ДОБАВЛЕНИЯ*/
+            // let che2 = &#x27;&lt;div &gt;&lt;input tabindex=\&#x27;-1\&#x27; type=\&#x27;button\&#x27; class=\&#x27;btn btn-success btn-sm\&#x27; value=\&#x27;add\&#x27; ng-click=\&#x27;vm.my_alert(row.entity.id,row.entity.id_list)\&#x27; ng-checked=\&#x27;row.selected\&#x27; /&gt;&lt;/div&gt;&quot;&#x27;;
+            // str =&#x27;{&quot;field&quot;: &quot;add&quot;, &quot;displayName&quot;: &quot;add&quot;, &quot;width&quot;: 50, &quot;cellTemplate&quot;: &quot;&#x27; + che2 + &#x27;}&#x27;
+            // // console.log(str); 
+            // vm.ngGridView.columnDefs.push(JSON.parse(str));
+
+            /*ДОБАВЛЯЕМ КНОПКУ УДАЛЕНИЯ*/
+            che = &#x27;&lt;div&gt;&lt;i class=\&#x27;fa fa-trash-o btn btn-danger btn-sm\&#x27; ng-click=\&#x27;vm.my_alert(row.entity.id,row.entity.id_list,0)\&#x27;&gt;&lt;/i&gt;&lt;/div&gt;&quot;&#x27;;
+            str =&#x27;{&quot;field&quot;: &quot;delete&quot;, &quot;displayName&quot;: &quot;...&quot;, &quot;width&quot;: 40, &quot;cellTemplate&quot;: &quot;&#x27; + che + &#x27;}&#x27;
+            vm.ngGridView.columnDefs.push(JSON.parse(str));
+        };
+
+        function my_alert (id, l, type=&#x27;def&#x27;) {
+            if(type == 0) {
+                deltasck (l, id);
+            }
+            if(type == 1) {
+                //НАЙТИ НОМЕР п.п. ЭТО НУЖНО ТОЛЬКО ДЛЯ АПДЕЙТА ДОБАВЛЕННЫХ ЗАДАЧ
+                let n = null;
+                for(let i=0; i &lt; vm[&#x27;list_&#x27; + l].length; i++){
+                    if(vm[&#x27;list_&#x27; + l][i].id == id){
+                        n = i;
+                    }
+                };
+                edittasck (l, id, n);
+            };   
+        };
+      
+        //ФУНКЦИЯ ВЫВОДА СОДЕРЖИМОГО ЛИСТОВ 
+        function logModels () {
+            vm.sortingLog = [];
+            for (let i = 0; i &lt; vm.rawScreens.length; i++) {
+              var logEntry = vm.rawScreens[i].map(function (x) {
+                return x.title + &#x27;-&#x27; + x.id_list + &#x27;|&#x27;;
+              }).join(&#x27;, &#x27;);
+              logEntry = &#x27;container &#x27; + (i+1) + &#x27;: &#x27; + logEntry;
+              vm.sortingLog.push(logEntry);
+            }
+        };
+
+        //ФУНКЦИЯ УДАЛЕНИЯ ЗАДАЧИ ИЗ ЛИСТА(!ДЛЯ ЭТОЙ ЗАДАЧИ НУЖНО ПОДКЛЮЧИТЬ LODASH !!!)
+        function deltasck (i, j) {
+            event.preventDefault();
+            // vm[&#x27;list_&#x27; + i].splice(j, 1);
+            vm[&#x27;list_&#x27; + i].splice(_.indexOf(vm[&#x27;list_&#x27; + i], _.find(vm[&#x27;list_&#x27; + i], function (item) { return item.id === j; })), 1);
+            vm.resjsontasks.splice(_.indexOf(vm.resjsontasks, _.find(vm.resjsontasks, function (item) { return item.id === j; })), 1);
+        };
+
+        function refresh_rawScreens(){
+            vm.rawScreens = [];
+            createSheets(vm.resgetJsonLists);
+        };
+
+        var tasck_count = 0;
+
+        /**
+         * @description ФУНКЦИОНАЛ addtasck (i):&lt;br&gt;
+         * 1. ФОРМИРУЕТ ИЗ СТРОКИ ОБЪЕКТ-ЗАДАЧУ&lt;br&gt; 
+         * 2. ДОБАВЛЯЕТ ОБЪЕКТ В vm.resjsontasks &lt;br&gt;
+         * 3. ОБНОВЛЯЕТ vm.rawScreens
+         * @method addtasck
+         * @param {Integer} i НОМЕР ЛИСТА DRAG&amp;DROP
+         */ 
+        //ФУНКЦИЯ ДОБАВЛЕНИЯ ЗАДАЧИ 
+        function addtasck (i) {
+            event.preventDefault();
+            if(vm[&#x27;list_&#x27; + i].length &lt; vm.tasck_limit){
+                var addTasck = vm.resjsontasks[0];
+
+                //СОЗДАЕМ &quot;СТРОКОВЫЙ ОБЪЕКТ&quot;- str ДЛЯ ДАЛЬНЕЙШЕГО JSON.parse(str)
+                let str =&#x27;{&#x27;;
+                for(let k in addTasck) {
+                    if(k != &quot;id&quot;) {
+                        if(k == &quot;title&quot;) {
+                            str = str + &#x27;&quot;&#x27; + k + &#x27;&quot;&#x27;  + &#x27;: &quot;NewTasck &#x27; + i + tasck_count + &#x27;&quot;,&#x27;
+                        }else{
+                            if(k == &quot;id_list&quot;){
+                                str = str + &#x27;&quot;&#x27; + k + &#x27;&quot;&#x27;  + &#x27;: &#x27; +  Number(i) 
+                            }else if(k == &quot;description&quot; || k == &quot;date&quot;){ 
+                                if(k == &quot;date&quot;){
+                                    str = str + &#x27;&quot;&#x27; + k + &#x27;&quot;&#x27; + &#x27; : &quot;08.12.2017&quot;&#x27; + &#x27;,&#x27;
+                                }else{str = str + &#x27;&quot;&#x27; + k + &#x27;&quot;&#x27; + &#x27; : &quot;1&quot;&#x27; + &#x27;,&#x27;}
+                            }else{
+                                if(k != &quot;$$hashKey&quot;) str = str + &#x27;&quot;&#x27; + k + &#x27;&quot;&#x27; + &#x27; : 1&#x27; + &#x27;,&#x27;   
+                            }
+                        }
+                    }else{
+                       str = str + &#x27;&quot;id&quot; : &#x27; + Math.floor(Date.now() / 1000) + &#x27;,&#x27; 
+                    }
+                };
+                str = str + &#x27;}&#x27;;
+                // vm.rawScreens.push(JSON.parse(str));
+                // vm[&#x27;list_&#x27; + i].push(JSON.parse(str));
+                vm.resjsontasks.push(JSON.parse(str));
+
+                refresh_rawScreens();
+                
+                tasck_count++
+            }
+        };
+
+        /**
+         * @description ФУНКЦИОНАЛ edittasck (i, j, t_index):&lt;br&gt;
+         * ОТКРЫТИЕ ЗАДАЧИ ДЛЯ ПОДРОБНОГО ПРОСМОТРА И ВОЗМОЖНОГО РЕДАКТИРОВАНИЯ
+         * @method edittasck
+         * @param {Integer} i НОМЕР ЛИСТА DRAG&amp;DROP
+         * @param {Integer} j id ЗАДАЧИ
+         * @param {Integer} t_index ПОРЯДКОВЫЙ НОМЕР ЗАДАЧИ В DRAG&amp;DROP
+         */
+        //ФУНКЦИЯ ПРОСМОТРА ЗАДАЧИ 
+        function edittasck (i, j, t_index) {
+            event.preventDefault();
+            //ФИЛЬТРУЕМ ПО ЛИСТУ И ИД ЗАДАЧИ
+            let f = _.find(vm[&#x27;list_&#x27; + i], function (item){ return item.id === j;});
+
+            //ВСЕ &quot;КЛЮЧИ&quot; С ДАННЫМИ ЗАГОНЯЕМ В ПЕРЕМЕННЫЕ ФОРМЫ
+            for(let k in f) vm[&#x27;html_&#x27; + k] = f[k];
+            vm[&#x27;html_t_index&#x27;] = t_index + 1;
+
+            //ОТКРЫВАЕММ ДИАЛОГОВОЕ ОКНО
+            $(&quot;#openModal&quot;).fadeToggle();
+        };
+
+        function change_list(){
+            vm.change = true;
+        }
+
+        /**
+         * @description ФУНКЦИОНАЛ find_index_by_id(source, id) :&lt;br&gt;
+         * ПОИСК ИНДЕКСА ЗАДАЧИ В МАССИВЕ ПЕРЕДАННОГО ОБЪЕКТА - source ПО ПЕРЕДАННОМУ id
+
+                function find_index_by_id(source,id){
+                    let indexes = $.map(source, function(obj, index) {
+                            if(obj.id == id) {
+                                return index;
+                            }
+                        }) 
+                    return indexes[0];
+                };
+
+         * @method find_index_by_id
+         * @param {Object} source МАССИВ ОБЪЕКТОВ
+         * @param {Integer} index id ЗАДАЧИ
+         * @return {Integer} НАЙДЕННЫЙ ИНДЕКС
+         */ 
+         //ФУНКЦИЯ ПОИСКА ПО ИД
+        function find_index_by_id(source,id){
+            let indexes = $.map(source, function(obj, index) {
+                    if(obj.id == id) {
+                        return index;
+                    }
+                }) 
+            return indexes[0];
+        };
+
+
+        /**
+         * @method savetasck
+         * @description ФУНКЦИОНАЛ savetasck() :&lt;br&gt;
+         * 1. ПОИСК ИНДЕКСА ЗАДАЧИ В МАССИВЕ vm.resjsontasks&lt;br&gt; 
+         * 2. ОБНОВЛЕНИЕ ПОЛЕЙ В ЗАДАЧЕ (ИЗ МАССИВА vm.resjsontasks)&lt;br&gt;
+         * 3. ЕСЛИ БЫЛ ИЗМЕНЕН СТАТУС ЗАДАЧИ - ОБНОВЛЕНИЕ МАССИВА vm.rawScreens&lt;br&gt;
+         */ 
+        //ФУНКЦИЯ СОХРАНЕНИЯ ЗАДАЧИ
+        function savetasck (i, j, t_index) {
+            event.preventDefault();
+            if(confirm(&quot;Сохранить?&quot;) == true){
+
+                //НАХОДИМ ПО id (j) ИНДЕКС ЗАДАЧИ В МАССИВЕ vm.resjsontasks
+                let firstIndex = find_index_by_id(vm.resjsontasks, j);
+
+                for(let k in vm.resjsontasks[0]) {
+                    if(k != &quot;$$hashKey&quot;) {
+                        if(k == &quot;date&quot; || k == &quot;title&quot;) {
+                            if(k == &quot;date&quot;) {
+                                vm.resjsontasks[firstIndex][&quot;date&quot;] =  $(&#x27;#dtpckr&#x27;)[0].value;
+                            }else{
+                                vm.resjsontasks[firstIndex][&quot;title&quot;] = $(&#x27;#ttl&#x27;)[0].value;
+                                // console.log($(&#x27;#ttl&#x27;)[0].value);
+                            }
+                        }else{
+                          vm.resjsontasks[firstIndex][k] = vm[&#x27;html_&#x27; + k];  
+                        }
+                        /*? СПЕЦИАЛЬНО ДЛЯ ОБНОВЛЕНИЯ !!! ТОЛЬКО ДОБАВЛЕННЫХ ЗАДАЧ В drag&amp;drop */
+                        // vm[&#x27;list_&#x27; + i][t_index - 1][k] = vm[&#x27;html_&#x27; + k];
+                    };
+                };
+
+                if(vm.change == true){
+                    // console.log(vm.change);
+                    refresh_rawScreens();
+                    vm.change = false;
+                    // console.log(vm.change);              
+                };
+            };
+
+            // console.log(vm.resjsontasks);
+            $(&quot;.modalDialog&quot;).fadeToggle();
+        };
+
+        //ФУНКЦИЯ ВЫХОДА ИЗ modalDialog БЕЗ СОХРАНЕНИЯ ДАННЫХХ
+        function exit_modal() {
+            event.preventDefault();
+            $(&quot;.modalDialog&quot;).fadeToggle();
+        };
+
+        function def_click(){event.preventDefault();};
+
+        //ФУНКЦИЯ СКРЫТИЯ ИНДИКАТОРА ОЖИДАНИЯ
+        function finish_loader(){
+            if ($(&quot;#loader&quot;).is(&quot;:visible&quot;)){
+                $(&quot;#loader&quot;).fadeToggle();
+            }
+        };
+
+        //ФУНКЦИЯ ВИЗУАЛИЗАЦИИ ИНДИКАТОРА ОЖИДАНИЯ
+        function start_loader(){
+            if (!$(&quot;#loader&quot;).is(&quot;:visible&quot;)){
+                $(&quot;#loader&quot;).fadeToggle();
+            }
+        };
+
+         //ФУНКЦИЯ ЗАГРУЗКИ ТЕКУЩЕГО ЮЗЕРА 
+        function loadCurrentUser() {
+            UserService.GetByUsername($rootScope.globals.currentUser.username)
+                .then(function (user) {
+                    vm.user = user;
+                });
+        };
+
+        //ФУНКЦИЯ ЗАГРУЗКИ ВСЕХ ЮЗЕРОВ 
+        function loadAllUsers() {
+            UserService.GetAll()
+                .then(function (users) {
+                    vm.allUsers = users;
+                });
+        };
+
+        //ФУНКЦИЯ УДАЛЕНИЯ ЮЗЕРА 
+        function deleteUser(id) {
+            UserService.Delete(id)
+                .then(function () {
+                    loadAllUsers();
+                });
+        };
+
+    };
+
+})();
+    </pre>
+</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+</body>
+</html>
